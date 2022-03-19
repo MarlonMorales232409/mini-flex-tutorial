@@ -1,0 +1,101 @@
+/* Some basic styles */
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 
+
+    FlexBox Tips 
+    1- Display flex always has to be defined in the father container
+    2- Always you need define with and height, this is very important
+    because you need to play with the position on the screen
+
+    expamples:
+*/
+
+#father_container {
+    width: 100%;
+    /* I'm using 100vh because I want that the main container has all height of the screen  */
+    /* This will help me to center elements vertically */
+    height: 100vh;
+    /* Now some Flexbox properties */
+    /* Display flex will set all elements inside the father contaier one next the other */
+    display: flex;
+    /* now i'm gonna center the child elements */
+    /* as we have a widht of 100% the elements will be center with justify content */
+    /* if you watn to set elements on the start of on the end, you need to the comment properties here below  */
+    justify-content: center;
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+
+    /* Now vertically center */
+    /* Align items: center will center vertically the elements because i defined the heaiht with 100vh */
+    /* If you don't define a height this not gonna happend */
+    align-items: center;
+
+    /* This next properties are very close with responsive desing */
+    /* flex-direction will let you set the elements in column or row, by default is gonna be row */
+    /* but using mediaquerys you can replace this  */
+    flex-direction: row;
+    /* flex-wrap allow you that you desing don't broke the layout because when an element is too big for thath resolution */
+    /* automatically will be desplaced to the botton, you can coment the next line and see what happen */
+    flex-wrap: wrap;
+}
+
+.child_element {
+    margin: 0 10px;
+    border: solid 1px #000;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px #ccc;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    /* You can use display flex inside the child elements to affect their childs for example */
+    /* I'm going to center the ".child_elements'child" */
+    /* Again we nedd to define width and  height and then... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+.child_element:nth-child(1){
+    justify-content: flex-start;
+}
+
+.child_element:nth-child(3){
+    justify-content: flex-end;
+}
+
+button {
+    border-radius: 7px;
+    border: none;
+    background-color: slateblue;
+    color: white;
+    box-shadow: 0px 0px 10px slateblue;
+    cursor: pointer;
+    width: 110px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Gap is used like margin but only works in the father container and affects his childs */
+    gap: 4px;
+    
+}
+
+button:active{
+    background-color: slategray;
+}
+
+/* This is a simple example don't need to use media queries because with the property flex-wrap:wrap */
+/* The elements automatically are goint to be center one under the next */
+/* But you can play with this and dont use flex-wrap and just use mediaqueries */
+/* Usually we going to use both mediaqueries and flex-properties */
